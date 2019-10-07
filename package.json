@@ -47,7 +47,7 @@
     "eslint-plugin-import": "^2.17.2",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.13.0",
-    "gh-pages": "^2.0.1",
+    "gh-pages": "^2.1.1",
     "prettier": "^1.17.0",
     "remark-cli": "^7.0.0",
     "remark-preset-lint-recommended": "^3.0.2",
@@ -72,7 +72,8 @@
     "lint:js": "eslint --ext .js,.jsx .",
     "lint:md": "remark content/",
     "write-good": "write-good $(glob 'content/posts/**/*.md')",
-    "format:js": "prettier '**/*.{js,jsx}' --write"
+	"format:js": "prettier '**/*.{js,jsx}' --write",
+	"deploy": "gatsby build && gh-pages -d public -b master"
   },
   "remarkConfig": {
     "plugins": [
