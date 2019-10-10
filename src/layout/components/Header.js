@@ -12,6 +12,7 @@ const Header = () => {
 			<Navbar.Toggle aria-controls="responsive-navbar-nav" />
 			<Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
 				<Nav >
+					<Link to="/blog" className="nav-link">Blog</Link>
 					<Link to="/about" className="nav-link">About</Link>
 					{/* <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
 						<Link to="/" className="dropdown-item">Action</Link>
