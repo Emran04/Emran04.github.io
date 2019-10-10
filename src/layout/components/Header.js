@@ -6,7 +6,7 @@ import { Link } from "gatsby"
 
 const Header = () => {
 	return (
-		<Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+		<Navbar collapseOnSelect expand="lg">
 			<div className="container">
 			<Link to="/" className="nav-link">Emran Hossen</Link>
 			<Navbar.Toggle aria-controls="responsive-navbar-nav" />

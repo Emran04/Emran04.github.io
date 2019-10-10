@@ -2,10 +2,32 @@
     box-sizing: border-box;
 }
 
-html {
-    height: 100%;
+html, body {
+    height:100vh
 }
 
 body {
-    margin: 0;
+	margin: 0;
+	padding-top: 48px;
+	background-color: #f9f9fa;
+}
+
+.main-menu .navbar {
+	position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 1000;
+    font-size: 17px;
+    height: 46px;
+    background: #fdf9f3;
+    background: var(--theme-top-bar-background, #fdf9f3);
+    position: fixed;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+
+.footer {
+	margin-top: 25px;
+	background-color: #fdf9f3;
+	padding: 15px 0;
 }
