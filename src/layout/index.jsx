@@ -20,7 +20,7 @@ export default class MainLayout extends React.Component {
 			<div className="main-menu">
 				<Header />
 			</div>
-			<div className="container main-content">
+			<div className="container main-content mb-2">
 				<div className="row">
 					<div className="col-md-10 offset-md-1">
 						{children}

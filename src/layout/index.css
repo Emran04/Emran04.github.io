@@ -2,8 +2,13 @@
     box-sizing: border-box;
 }
 
-html, body {
-    height:100vh
+html, body, #___gatsby, #gatsby-focus-wrapper {
+    height:calc(100vh - 46px)
+}
+
+#gatsby-focus-wrapper {
+	display:flex; 
+  	flex-direction:column; 
 }
 
 body {
@@ -66,7 +71,7 @@ body {
 }
 
 .footer {
-	margin-top: 25px;
+	margin-top: auto;
 	background-color: #fdf9f3;
 	padding: 15px 0;
 }
