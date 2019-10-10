@@ -32,23 +32,17 @@ export default class PostTemplate extends React.Component {
 						<title>{`${post.title} | ${config.siteTitle}`}</title>
 					</Helmet>
 					<SEO postPath={slug} postNode={postNode} postSEO />
-					<div className="container">
-						<div className="row">
-							<div className="col">
-								<Card className="single-post">
-									<Card.Body>
-										<h1 className="single-post-title">{post.title}</h1>
-										<p>Posted on: {moment(post.date).format("DD/MM/YYYY")}</p>
-										<Card.Text dangerouslySetInnerHTML={{ __html: postNode.html }} />
-									</Card.Body>
-								</Card>
-								{/* <PostTags tags={post.tags} />
+					<Card className="single-post">
+						<Card.Body>
+							<h1 className="single-post-title">{post.title}</h1>
+							<p>Posted on: {moment(post.date).format("DD/MM/YYYY")}</p>
+							<Card.Text dangerouslySetInnerHTML={{ __html: postNode.html }} />
+						</Card.Body>
+					</Card>
+					{/* <PostTags tags={post.tags} />
 							<SocialLinks postPath={slug} postNode={postNode} /> */}
-							</div>
-						</div>
-						{/* <UserInfo config={config} /> */}
-						{/* <Disqus postNode={postNode} /> */}
-					</div>
+					{/* <UserInfo config={config} /> */}
+					{/* <Disqus postNode={postNode} /> */}
 				</div>
 			</Layout>
 		);

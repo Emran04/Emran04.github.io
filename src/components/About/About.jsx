@@ -11,11 +11,12 @@ class About extends Component {
 							<img src={'/img/pp.jpg'} className="img-fluid" alt="Logo" />
 						</div>
 						<div className="col-12 col-sm-6 p-4">
-							<p>Hi, I am Emran Hossen, Fullstack web developer. I build and deliver quality software that helps business succeed. I am consultant, programmer, team lead, software architect and teacher.</p>
-							<p>I am currently working as CEO and Co-Founder at GreenTwigs Software service.</p>
-							<p>I love to working with new technologies. Currently I am working Laravel for creating API or web service, ReactJS for consume API. For deployment I use Digitalocean and aws.</p>
-							<p>Get In Touch
-        Email me: emran04ch@gmail.com</p>
+							<p>Hi, I am Emran, I am a software engineer and I grew up in Chittagong. I graduated with Computer and Communication Engineering from International Islamic University Chittagong.</p>
+							<p>I build and deliver quality software that helps business succeed. I am consultant, programmer, team lead.</p>
+							{/* <p>I am currently working as CEO and Co-Founder at GreenTwigs Software service.</p>
+							<p>I love to working with new technologies. Currently I am working Laravel for creating API or web service, ReactJS for consume API. For deployment I use Digitalocean and aws.</p> */}
+							{/* <p>Get In Touch
+        Email me: emran04ch@gmail.com</p> */}
 						</div>
 					</div>
 				</div>

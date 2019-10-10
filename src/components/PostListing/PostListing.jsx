@@ -40,7 +40,7 @@ const PostListing = (props) => {
 							</Card.Text>
 							<Link to={post.path}>
 								Read →
-										</Link>
+							</Link>
 						</Card.Body>
 					</Card>
 
