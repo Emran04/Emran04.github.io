@@ -11,48 +11,48 @@ import config from "../../data/SiteConfig";
 import "./b16-tomorrow-dark.css";
 import "./post.css";
 import Card from 'react-bootstrap/Card'
+import moment from 'moment'
 
 export default class PostTemplate extends React.Component {
-  render() {
-    const { data, pageContext } = this.props;
-    const { slug } = pageContext;
-    const postNode = data.markdownRemark;
-    const post = postNode.frontmatter;
-    if (!post.id) {
-      post.id = slug;
-    }
-    if (!post.category_id) {
-      post.category_id = config.postDefaultCategoryID;
-    }
-    return (
-      <Layout>
-        <div>
-          <Helmet>
-            <title>{`${post.title} | ${config.siteTitle}`}</title>
-          </Helmet>
-          <SEO postPath={slug} postNode={postNode} postSEO />
-          <div className="container">
-			<div className="row">
-				<div className="col">
-							<Card className="single-post">
-								<Card.Body>
-									<h2>{post.title}</h2>
-									<Card.Text dangerouslySetInnerHTML={{ __html: postNode.html }}>
-
-									</Card.Text>
-								</Card.Body>
-							</Card>
-							{/* <PostTags tags={post.tags} />
+	render() {
+		const { data, pageContext } = this.props;
+		const { slug } = pageContext;
+		const postNode = data.markdownRemark;
+		const post = postNode.frontmatter;
+		if (!post.id) {
+			post.id = slug;
+		}
+		if (!post.category_id) {
+			post.category_id = config.postDefaultCategoryID;
+		}
+		return (
+			<Layout>
+				<div>
+					<Helmet>
+						<title>{`${post.title} | ${config.siteTitle}`}</title>
+					</Helmet>
+					<SEO postPath={slug} postNode={postNode} postSEO />
+					<div className="container">
+						<div className="row">
+							<div className="col">
+								<Card className="single-post">
+									<Card.Body>
+										<h1 className="single-post-title">{post.title}</h1>
+										<p>Posted on: {moment(post.date).format("DD/MM/YYYY")}</p>
+										<Card.Text dangerouslySetInnerHTML={{ __html: postNode.html }} />
+									</Card.Body>
+								</Card>
+								{/* <PostTags tags={post.tags} />
 							<SocialLinks postPath={slug} postNode={postNode} /> */}
+							</div>
+						</div>
+						{/* <UserInfo config={config} /> */}
+						{/* <Disqus postNode={postNode} /> */}
+					</div>
 				</div>
-			</div>
-            {/* <UserInfo config={config} /> */}
-            {/* <Disqus postNode={postNode} /> */}
-          </div>
-        </div>
-      </Layout>
-    );
-  }
+			</Layout>
+		);
+	}
 }
 
 /* eslint no-undef: "off" */

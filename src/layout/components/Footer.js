@@ -6,7 +6,7 @@ const Footer = () => {
 		<footer className="footer">
 			<div className="container">
 				<div className="row">
-					<div className="col">
+					<div className="col-md-10 offset-md-1">
 						<div className="footer-content">
 							<a href="https://github.com/emran04" target="__blank">Github</a>
 						</div>

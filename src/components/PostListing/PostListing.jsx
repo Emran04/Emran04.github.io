@@ -23,33 +23,30 @@ const PostListing = (props) => {
 
 	const postList = getPostList();
 	return (
-		<div className="container">
-			<div className="row">
-				<div className="col">
-					{
-						postList.map(post => (
-							<Card key={post.title} className="post">
-								<Card.Header>
-								<Link to={post.path}>
+		<>
+			{
+				postList.map(post => (
+					<Card key={post.title} className="post">
+						<Card.Body>
+							<h3 className="post-title">
+								<Link to={post.path} className="post-link">
 									{post.title}
-								</Link> - {moment(post.date).format("DD/MM/YYYY")}</Card.Header>
-								
-								<Card.Body>
-									<Card.Text>
-										{post.excerpt}
-										
-    								</Card.Text>
-									<Link to={post.path} className="btn btn-primary">
-										View
-										</Link>
-								</Card.Body>
-							</Card>
+								</Link>
+							</h3>
+							<p>Posted on: {moment(post.date).format("DD/MM/YYYY")}</p>
+							<Card.Text>
+								{post.excerpt}
 
-						))
-					}
-				</div>
-			</div>
-		</div>
+							</Card.Text>
+							<Link to={post.path}>
+								Read →
+										</Link>
+						</Card.Body>
+					</Card>
+
+				))
+			}
+		</>
 	);
 }
 
