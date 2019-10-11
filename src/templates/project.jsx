@@ -33,11 +33,9 @@ export default class PostTemplate extends React.Component {
 					</Helmet>
 					<SEO postPath={slug} postNode={postNode} postSEO />
 					<Card className="single-post">
-						<img src={post.cover} alt={post.title} />
 						<Card.Body>
 							<h1 className="single-post-title">{post.title}</h1>
 							<p>Posted on: {moment(post.date).format("DD/MM/YYYY")}</p>
-							<p>{post.posttype}</p>
 							<Card.Text dangerouslySetInnerHTML={{ __html: postNode.html }} />
 						</Card.Body>
 					</Card>
@@ -53,7 +51,7 @@ export default class PostTemplate extends React.Component {
 
 /* eslint no-undef: "off" */
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
+  query ProjectPostBySlug($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       timeToRead
@@ -63,8 +61,7 @@ export const pageQuery = graphql`
         cover
         date
         category
-		tags
-		posttype
+        tags
       }
       fields {
         slug

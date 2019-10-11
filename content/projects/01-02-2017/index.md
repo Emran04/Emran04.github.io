@@ -1,5 +1,6 @@
 ---
-title: "The Fallen Time"
+posttype: "project"
+title: "Project one"
 cover: "https://unsplash.it/400/300/?random?TheFallenTime"
 date: "2019-10-05"
 category: "another one"

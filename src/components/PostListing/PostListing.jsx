@@ -29,7 +29,7 @@ const PostListing = (props) => {
 					<Card key={post.title} className="post">
 						<Card.Body>
 							<h3 className="post-title">
-								<Link to={post.path} className="post-link">
+								<Link to={`/blog${post.path}`} className="post-link">
 									{post.title}
 								</Link>
 							</h3>
@@ -38,7 +38,7 @@ const PostListing = (props) => {
 								{post.excerpt}
 
 							</Card.Text>
-							<Link to={post.path}>
+							<Link to={`/blog${post.path}`}>
 								Read →
 							</Link>
 						</Card.Body>
