@@ -50,6 +50,18 @@ body {
     border-bottom: 1px solid rgba(0,0,0,0.2);
 }
 
+.show-all-container {
+	margin-top: 15px;
+}
+.read-all-btn {
+	font-size: 24px;
+	color: hsla(0,0%,0%,0.775);
+}
+
+.read-all-btn:hover {
+	text-decoration: none;
+}
+
 .post-title {
 	font-size: 28px;
 }

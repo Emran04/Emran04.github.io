@@ -1,6 +1,10 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 import Layout from "../layout"
+import { Helmet, HelmetProvider } from 'react-helmet-async';
+import config from "../../data/SiteConfig";
+import PostListing from "../components/PostListing/PostListing";
+import SEO from "../components/SEO/SEO";
 
 const BlogList = (props) => {
 	const { currentPage, numPages } = props.pageContext
@@ -11,59 +15,60 @@ const BlogList = (props) => {
 
 	const posts = props.data.allMarkdownRemark.edges
 	return (
-		<Layout>
-			{posts.map(({ node }) => {
-				const title = node.frontmatter.title || node.fields.slug
-				return <div key={node.fields.slug}>{title}</div>
-			})}
-
-			<nav aria-label="Page navigation example">
-				<ul className="pagination">
-					{!isFirst && (
-						<li className="page-item">
-							<Link
-								to={'/blog/' + prevPage}
-								rel="prev"
-								className="page-link"
-							>
-								<span aria-hidden="true">&laquo;</span>
-							</Link>
-						</li>
-					)}
-					{posts.length > 3 ? Array.from({ length: numPages }, (_, i) => {
-						let active_cls = currentPage === (i + 1) ? 'active' : ''
-						return (
-
-							<li
-								className={`page-item ${active_cls}`}
-								key={`pagination-number${i + 1}`}
-							>
+		<HelmetProvider>
+			<Layout>
+				<Helmet title={config.siteTitle} />
+				<SEO />
+				<PostListing postEdges={posts} />
+				
+				<nav aria-label="Page navigation example">
+					<ul className="pagination">
+						{!isFirst && (
+							<li className="page-item">
 								<Link
-
-									to={`/blog/${i === 0 ? "" : i + 1}`}
+									to={'/blog/' + prevPage}
+									rel="prev"
 									className="page-link"
 								>
-									{i + 1}
+									<span aria-hidden="true">&laquo;</span>
 								</Link>
 							</li>
-						)
-					}
+						)}
+						{posts.length > 3 ? Array.from({ length: numPages }, (_, i) => {
+							let active_cls = currentPage === (i + 1) ? 'active' : ''
+							return (
 
-					) : null}
+								<li
+									className={`page-item ${active_cls}`}
+									key={`pagination-number${i + 1}`}
+								>
+									<Link
 
-					{!isLast && (
-						<li className="page-item">
-							<Link
-								to={'/blog/' + nextPage}
-								className="page-link"
-								rel="next">
-								<span aria-hidden="true">&raquo;</span>
-							</Link>
-						</li>
-					)}
-				</ul>
-			</nav>
-		</Layout>
+										to={`/blog/${i === 0 ? "" : i + 1}`}
+										className="page-link"
+									>
+										{i + 1}
+									</Link>
+								</li>
+							)
+						}
+
+						) : null}
+
+						{!isLast && (
+							<li className="page-item">
+								<Link
+									to={'/blog/' + nextPage}
+									className="page-link"
+									rel="next">
+									<span aria-hidden="true">&raquo;</span>
+								</Link>
+							</li>
+						)}
+					</ul>
+				</nav>
+			</Layout>
+		</HelmetProvider>
 	)
 }
 
@@ -80,10 +85,15 @@ export const blogListQuery = graphql`
       edges {
         node {
           fields {
-            slug
-          }
+			slug
+			date
+		  }
+		  excerpt
           frontmatter {
-            title
+			title
+			tags
+            cover
+            date
           }
         }
       }
