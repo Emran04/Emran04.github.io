@@ -10,19 +10,21 @@ import config from "../../data/SiteConfig";
 const Index = (props) => {
 	const postEdges = props.data.allMarkdownRemark.edges;
 	return (
-		<HelmetProvider>
-			<Layout>
-				<div className="index-container">
-					<Helmet title={config.siteTitle} />
-					<SEO />
-					<PostListing postEdges={postEdges} />
+		<Layout>
+			<div className="index-container">
+				<HelmetProvider>
+					<Helmet>
+						<title>{`${config.siteTitle}`}</title>
+					</Helmet>
+				</HelmetProvider>
+				<SEO />
+				<PostListing postEdges={postEdges} />
 
-					<div className="show-all-container">
-						<Link to={'blog'} className="read-all-btn">Read All Posts</Link>
-					</div>
+				<div className="show-all-container">
+					<Link to={'/blog'} className="read-all-btn">Read All Posts</Link>
 				</div>
-			</Layout>
-		</HelmetProvider>
+			</div>
+		</Layout>
 	);
 }
 

@@ -15,60 +15,62 @@ const BlogList = (props) => {
 
 	const posts = props.data.allMarkdownRemark.edges
 	return (
-		<HelmetProvider>
-			<Layout>
-				<Helmet title={config.siteTitle} />
-				<SEO />
-				<PostListing postEdges={posts} />
-				
-				<nav aria-label="Page navigation example">
-					<ul className="pagination">
-						{!isFirst && (
-							<li className="page-item">
+		<Layout>
+			<HelmetProvider>
+				<Helmet>
+					<title>{`Blog list | ${config.siteTitle}`}</title>
+				</Helmet>
+			</HelmetProvider>
+			<SEO />
+			<PostListing postEdges={posts} />
+
+			<nav aria-label="Page navigation example">
+				<ul className="pagination">
+					{!isFirst && (
+						<li className="page-item">
+							<Link
+								to={'/blog/' + prevPage}
+								rel="prev"
+								className="page-link"
+							>
+								<span aria-hidden="true">&laquo;</span>
+							</Link>
+						</li>
+					)}
+					{posts.length > 3 ? Array.from({ length: numPages }, (_, i) => {
+						let active_cls = currentPage === (i + 1) ? 'active' : ''
+						return (
+
+							<li
+								className={`page-item ${active_cls}`}
+								key={`pagination-number${i + 1}`}
+							>
 								<Link
-									to={'/blog/' + prevPage}
-									rel="prev"
+
+									to={`/blog/${i === 0 ? "" : i + 1}`}
 									className="page-link"
 								>
-									<span aria-hidden="true">&laquo;</span>
+									{i + 1}
 								</Link>
 							</li>
-						)}
-						{posts.length > 3 ? Array.from({ length: numPages }, (_, i) => {
-							let active_cls = currentPage === (i + 1) ? 'active' : ''
-							return (
+						)
+					}
 
-								<li
-									className={`page-item ${active_cls}`}
-									key={`pagination-number${i + 1}`}
-								>
-									<Link
+					) : null}
 
-										to={`/blog/${i === 0 ? "" : i + 1}`}
-										className="page-link"
-									>
-										{i + 1}
-									</Link>
-								</li>
-							)
-						}
-
-						) : null}
-
-						{!isLast && (
-							<li className="page-item">
-								<Link
-									to={'/blog/' + nextPage}
-									className="page-link"
-									rel="next">
-									<span aria-hidden="true">&raquo;</span>
-								</Link>
-							</li>
-						)}
-					</ul>
-				</nav>
-			</Layout>
-		</HelmetProvider>
+					{!isLast && (
+						<li className="page-item">
+							<Link
+								to={'/blog/' + nextPage}
+								className="page-link"
+								rel="next">
+								<span aria-hidden="true">&raquo;</span>
+							</Link>
+						</li>
+					)}
+				</ul>
+			</nav>
+		</Layout>
 	)
 }
 

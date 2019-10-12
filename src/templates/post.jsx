@@ -1,5 +1,5 @@
 import React from "react";
-import Helmet from "react-helmet";
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { graphql } from "gatsby";
 import Layout from "../layout";
 // import UserInfo from "../components/UserInfo/UserInfo";
@@ -28,9 +28,11 @@ export default class PostTemplate extends React.Component {
 		return (
 			<Layout>
 				<div>
-					<Helmet>
-						<title>{`${post.title} | ${config.siteTitle}`}</title>
-					</Helmet>
+					<HelmetProvider>
+						<Helmet>
+							<title>{`${post.title} | ${config.siteTitle}`}</title>
+						</Helmet>
+					</HelmetProvider>
 					<SEO postPath={slug} postNode={postNode} postSEO />
 					<Card className="single-post">
 						<img src={post.cover} alt={post.title} />
