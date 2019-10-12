@@ -15,6 +15,15 @@ body {
 	margin: 0;
 	padding-top: 48px;
 	background-color: #f9f9fa;
+	font-family: 'Montserrat', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4
+{
+	font-family: 'Raleway', sans-serif;
 }
 
 .logo {
@@ -48,6 +57,32 @@ body {
     background: var(--theme-top-bar-background, #fdf9f3);
     position: fixed;
     border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+
+.collapse.show .main-nav {
+	text-align: center;
+	background-color: #fdf9f3;
+}
+
+.head-title {
+	font-size: 30px;
+}
+
+.cta-mail {
+	font-size: 20px;
+	color: #1b4bcb;
+}
+
+.mail-link {
+	color: #1b4bcb;
+	display: inline-block;
+    background-color: #ddd;
+    padding: 3px 10px;
+    border-radius: 8px;
+}
+
+.mail-link:hover {
+	text-decoration: none;
 }
 
 .show-all-container {
@@ -86,4 +121,18 @@ body {
 	margin-top: auto;
 	background-color: #fdf9f3;
 	padding: 15px 0;
+}
+
+.footer-social-menu {
+	list-style: none;
+	display: flex;
+	justify-content: center;
+}
+
+.footer-social-menu li {
+	margin: 0 8px;
+}
+
+.footer-social-menu li a:hover {
+	text-decoration: none;
 }

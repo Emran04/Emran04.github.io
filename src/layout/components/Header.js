@@ -9,7 +9,7 @@ const Header = () => {
 		
 		<div className="container">
 			<div className="row">
-				<div className="col-10 offset-md-1">
+				<div className="col-md-10 offset-md-1">
 					<Navbar collapseOnSelect expand="lg">
 						<div className="logo">
 							<Link to="/" className="nav-link">Emran Hossen</Link>

@@ -1,7 +1,12 @@
 import React from 'react'
 // import { Link } from "gatsby"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGithub, faTwitter, faStackOverflow, faPinterest } from '@fortawesome/free-brands-svg-icons'
+import { 
+	faGithub, 
+	faTwitter, 
+	faStackOverflow,
+	// faPinterest 
+	} from '@fortawesome/free-brands-svg-icons'
 
 const Footer = () => {
 	return (
@@ -10,10 +15,12 @@ const Footer = () => {
 				<div className="row">
 					<div className="col-md-10 offset-md-1">
 						<div className="footer-content">
-							<FontAwesomeIcon icon={faGithub} /> <a href="https://github.com/emran04" target="__blank">Github</a>
-							<FontAwesomeIcon icon={faTwitter} /> <a href="https://github.com/emran04" target="__blank">Twitter</a>
-							<FontAwesomeIcon icon={faStackOverflow} /> <a href="https://github.com/emran04" target="__blank">Stack Overflow</a>
-							<FontAwesomeIcon icon={faPinterest} /> <a href="https://github.com/emran04" target="__blank">Pintrest</a>
+						<ul className="footer-social-menu">
+							<li><FontAwesomeIcon icon={faGithub} /><a href="https://github.com/emran04" target="__blank">Github</a></li>
+							<li><FontAwesomeIcon icon={faTwitter} /><a href="https://twitter.com/Emran04" target="__blank">Twitter</a></li>
+							<li><FontAwesomeIcon icon={faStackOverflow} /><a href="https://stackoverflow.com/users/3273861/emran" target="__blank">Stack Overflow</a></li>
+							{/* <li><FontAwesomeIcon icon={faPinterest} /><a href="https://github.com/emran04" target="__blank">Pintrest</a></li> */}
+						</ul>
 						</div>
 					</div>
 				</div>

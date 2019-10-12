@@ -6,6 +6,7 @@ import Layout from "../layout";
 import PostListing from "../components/PostListing/PostListing";
 import SEO from "../components/SEO/SEO";
 import config from "../../data/SiteConfig";
+import Bio from './../layout/components/Bio'
 
 const Index = (props) => {
 	const postEdges = props.data.allMarkdownRemark.edges;
@@ -18,6 +19,7 @@ const Index = (props) => {
 					</Helmet>
 				</HelmetProvider>
 				<SEO />
+				<Bio />
 				<PostListing postEdges={postEdges} />
 
 				<div className="show-all-container">

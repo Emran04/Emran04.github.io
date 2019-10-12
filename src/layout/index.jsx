@@ -15,6 +15,7 @@ export default class MainLayout extends React.Component {
 				<Helmet>
 				<meta name="description" content={config.siteDescription} />
 				<html lang="en" />
+				<link href="https://fonts.googleapis.com/css?family=Montserrat|Raleway&display=swap" rel="stylesheet" />
 				</Helmet>
 			</HelmetProvider>
 			<div className="main-menu">
