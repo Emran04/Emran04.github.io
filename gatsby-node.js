@@ -100,6 +100,8 @@ exports.createPages = async ({ graphql, actions }) => {
     return 0;
   });
 
+  let numPosts = 0, numProjects = 0;
+
   postsEdges.forEach((edge, index) => {
     if (edge.node.frontmatter.tags) {
       edge.node.frontmatter.tags.forEach(tag => {
@@ -117,6 +119,7 @@ exports.createPages = async ({ graphql, actions }) => {
     const prevEdge = postsEdges[prevID];
 
     if(edge.node.frontmatter.posttype === 'project') {
+		numProjects++;
       createPage({
         path: `/project${edge.node.fields.slug}`,
         component: projectPage,
@@ -129,6 +132,7 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       });
     } else {
+		numPosts++;
       createPage({
         path: `/blog${edge.node.fields.slug}`,
         component: postPage,
@@ -144,8 +148,8 @@ exports.createPages = async ({ graphql, actions }) => {
 
   });
 
-  const postsPerPage = 2
-  const numPages = Math.ceil(postsEdges.length / postsPerPage)
+  const postsPerPage = 3
+  const numPages = Math.ceil(numPosts / postsPerPage)
   Array.from({ length: numPages }).forEach((_, i) => {
     createPage({
       path: i === 0 ? `/blog` : `/blog/${i + 1}`,
@@ -168,6 +172,7 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     });
   });
+
   categorySet.forEach(category => {
     createPage({
       path: `/categories/${_.kebabCase(category)}/`,

@@ -38,7 +38,7 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "projects",
-        path: `${__dirname}/content/projects`
+        path: `${__dirname}/content/projects/`
       }
     },
     {
@@ -107,7 +107,7 @@ module.exports = {
         setup(ref) {
           const ret = ref.query.site.siteMetadata.rssMetadata;
           ret.allMarkdownRemark = ref.query.allMarkdownRemark;
-          ret.generator = "GatsbyJS Advanced Starter";
+          ret.generator = "Emran's Blog";
           return ret;
         },
         query: `
