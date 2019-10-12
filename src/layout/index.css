@@ -136,3 +136,7 @@ h4
 .footer-social-menu li a:hover {
 	text-decoration: none;
 }
+
+.footer-social-menu li a {
+	margin-left: 3px;
+}
