@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url> <loc>https://emran04.github.io/blog/laravel-jwt-authentication</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://emran04.github.io/blog/big-sample-test</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://emran04.github.io/blog/new-post</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://emran04.github.io/project/project-one</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://emran04.github.io/blog</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://emran04.github.io/tags/laravel/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://emran04.github.io/tags/restapi/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://emran04.github.io/tags/test/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://emran04.github.io/tags/huge/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://emran04.github.io/tags/something/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
