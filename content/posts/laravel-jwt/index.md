@@ -52,7 +52,7 @@ Then run this to generate secret key
 $ php artisan jwt:secret
 ```
 
-After that we need to use Tymon\JWTAuth\Contracts\JWTSubject interface in our User model and implement methods getJWTIdentifier and getJWTCustomClaims.
+After that we need to use `Tymon\JWTAuth\Contracts\JWTSubject` interface in our User model and implement methods getJWTIdentifier and getJWTCustomClaims.
 
 ```php
 <?php
@@ -100,9 +100,9 @@ class User extends Authenticatable implements JWTSubject
 }
 ```
 
-For authentication logic create UserController
+For authentication logic create `UserController`
 
-```no-highlight
+```
 $ php artisan make:controller UserController
 ```
 In UserController add this code
@@ -206,7 +206,7 @@ class UserController extends Controller
 }
 ```
 
-### Crete middleware and routes
+### Create middleware and routes
 We need to create a middleware to use token in authentication.
 
 ```no-highlight
