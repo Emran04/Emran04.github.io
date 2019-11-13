@@ -7,6 +7,7 @@ slug: "laravel-jwt-authentication"
 tags:
     - laravel
     - restapi
+featuredImage: './banner.jpg'
 ---
 
 For creating REST API we use jwt token for stateless authentication. In this post I will show you how to add jwt to laravel for api authentication.
@@ -51,3 +52,50 @@ Then run this to generate secret key
 $ php artisan jwt:secret
 ```
 
+After that we need to use Tymon\JWTAuth\Contracts\JWTSubject interface in our User model and implement methods getJWTIdentifier and getJWTCustomClaims.
+
+```php
+<?php
+
+namespace App;
+
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Tymon\JWTAuth\Contracts\JWTSubject;
+
+class User extends Authenticatable implements JWTSubject
+{
+    use Notifiable;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name', 'email', 'password',
+    ];
+
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
+
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+
+    public function getJWTCustomClaims()
+    {
+        return [];
+    }
+
+
+}
+```

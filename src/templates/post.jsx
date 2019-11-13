@@ -6,12 +6,13 @@ import Layout from "../layout";
 // import Disqus from "../components/Disqus/Disqus";
 // import PostTags from "../components/PostTags/PostTags";
 // import SocialLinks from "../components/SocialLinks/SocialLinks";
-import SEO from "../components/SEO/SEO";
-import config from "../../data/SiteConfig";
+import SEO from "../components/SEO/SEO"
+import config from "../../data/SiteConfig"
 import "./b16-tomorrow-dark.css";
 import "./post.css";
 import Card from 'react-bootstrap/Card'
 import moment from 'moment'
+import Img from 'gatsby-image'
 
 export default class PostTemplate extends React.Component {
 	render() {
@@ -25,6 +26,7 @@ export default class PostTemplate extends React.Component {
 		if (!post.category_id) {
 			post.category_id = config.postDefaultCategoryID;
 		}
+
 		return (
 			<Layout>
 				<div>
@@ -35,10 +37,13 @@ export default class PostTemplate extends React.Component {
 					</HelmetProvider>
 					<SEO postPath={slug} postNode={postNode} postSEO />
 					<Card className="single-post">
-						<img src={post.cover} alt={post.title} />
+					{
+						post.featuredImage ? 
+						<Img sizes={post.featuredImage.childImageSharp.sizes} /> : null
+					}
 						<Card.Body>
 							<h1 className="single-post-title">{post.title}</h1>
-							<p>Posted on: {moment(post.date).format("DD/MM/YYYY")}</p>
+							<p>Posted on: {moment(post.date).format("DD MMMM YYYY")}</p>
 							<p>{post.posttype}</p>
 							<Card.Text dangerouslySetInnerHTML={{ __html: postNode.html }} />
 						</Card.Body>
@@ -67,6 +72,13 @@ export const pageQuery = graphql`
         category
 		tags
 		posttype
+		featuredImage {
+			childImageSharp {
+			  sizes(maxWidth: 630) {
+				...GatsbyImageSharpSizes
+			  }
+			}
+		  }
       }
       fields {
         slug
