@@ -33,7 +33,7 @@ const PostListing = (props) => {
 									{post.title}
 								</Link>
 							</h3>
-							<p>Posted on: {moment(post.date).format("DD/MM/YYYY")}</p>
+							<p>Posted on: {moment(post.date).format("DD MMMM YYYY")}</p>
 							<Card.Text>
 								{post.excerpt}
 
